@@ -1,0 +1,20 @@
+
+<div>
+  <div class="row" >
+    <div class="col-sm-1">
+      <ng-container *ngIf="!item.checked;else second">
+        <button class="btn btn-sm" (click)="toggleCheck()">⚪</button> 
+      </ng-container>
+      <ng-template #second>
+        <button class="btn btn-sm" (click)="toggleCheck()">✔️</button>
+      </ng-template>
+      <span></span>
+    </div>
+    <div class="col-sm-8">
+      <p>{{item.text}}</p>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn" (click)="attempToRemove()">🗑️</button>
+    </div>
+  </div>
+</div>

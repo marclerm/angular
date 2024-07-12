@@ -1,0 +1,27 @@
+<div>
+  <!-- Form -->
+  <form [formGroup]="todoForm">
+    <div class="form-group">
+      <label for="name">New Todo: </label>
+      <input  id="name" type="text" class="form-control" formControlName="name"/>      
+      <button type="submit" class="btn btn-sm btn-primary mt-2" [disabled]="!todoForm.valid" (click)="onSubmit()">Add</button>
+    </div>   
+  </form>
+  <!-- Items -->
+  <div class="mt-5">
+    <ng-container *ngIf="todosList.length === 0;else second">
+      <p>No items to display</p>
+    </ng-container>
+    <ng-template #second>
+      <p>Todo Items:</p>
+      <table>
+        <tr *ngFor="let x of todosList" >
+          <td>
+            <app-todo-item [item]="x" (removeItem)="deleteItem($event)"></app-todo-item>
+          </td>
+        </tr>
+      </table>
+    </ng-template>
+  
+  </div>
+</div>
