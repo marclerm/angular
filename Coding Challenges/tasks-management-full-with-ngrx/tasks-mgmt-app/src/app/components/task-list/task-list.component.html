@@ -1,0 +1,23 @@
+<div class="task-list-container">
+  <h2>Tasks</h2>
+
+  <!-- <div *ngIf="loading$ | async">Loading...</div>
+  <div *ngIf="error$ | async as error">{{ error }}</div> -->
+
+  <div *ngFor="let task of tasks$ | async">
+    <mat-card>
+      <mat-card-title>{{ task.title }}</mat-card-title>
+      <mat-card-subtitle>Status: {{ task.status }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{ task.description }}</p>
+        <p>Due Date: {{ task.dueDate | date:'mediumDate' }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="handleTaskSaved(task)">Edit</button>
+        <button mat-button color="warn" (click)="deleteTask(task.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <app-task-form (saveTask)="handleTaskSaved($event)"></app-task-form>
+</div>
