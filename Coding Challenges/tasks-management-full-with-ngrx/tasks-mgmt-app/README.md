@@ -13,4 +13,4 @@ This is a Task Management Application built with Angular. Users can register, lo
 1. Clone the repository:
    ```bash
    git clone https://github.com/marclerm/task-management-app.git
-   cd task-management-app
+   cd tasks-mgmt-app
